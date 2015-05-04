@@ -1,0 +1,1 @@
+@Exams = new Meteor.Collection 'exams'

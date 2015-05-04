@@ -1,0 +1,115 @@
+/*
+* Custom styles
+*/
+
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700,900);
+
+body {
+    background: #3283d2 url('images/body-bg.jpg') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    color: #333;
+    font-family: 'Lato', Helvetica, Arial;
+    margin: 0;
+    padding: 0;
+}
+
+#top-nav {
+    background-color: #f6c945;
+    border: 0;
+}
+#top-nav li a {
+    color: #333;
+    font-size: 20px;
+    font-weight: 900;
+}
+
+#top-nav .navbar-toggle {
+    border: 0;
+}
+
+#top-nav .navbar-toggle:hover,
+#top-nav .navbar-toggle:focus {
+    background-color: transparent;
+}
+
+#top-nav .navbar-toggle .icon-bar {
+    background-color: #444;
+    border: 0;
+}
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+    border: 0;
+}
+
+.btn {
+    font-weight: 900;
+}
+
+.tooltip-inner {
+    font-size: 16px;
+}
+
+#message {
+    display: none;
+    position: absolute;
+    top: 0!important;
+    left: 0!important;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    vertical-align: middle;
+    background: rgba(0,0,0,.90);
+    opacity: 1;
+    line-height: 1;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    z-index: 1000;
+}
+
+#message .content {
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+
+#message .center {
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%;
+    height: 100%;
+}
+
+#message .message {
+    color: #ffffff;
+    font-size: 40px;
+    font-weight: 700;
+}
+
+#game-exam-block {
+    background: url(images/exam-bg.png) no-repeat; 
+}
+
+.friends-img {
+    position: absolute;
+    right: 5px;
+    border-radius: 500px;
+    width: 60px;
+    bottom: 5px;
+}
+
+@media (max-width: 650px) { .friends-img { display: none; } }
+
+.footer {
+    border: 0;
+    background: #f6c945; 
+}
+
+.footer a {
+    color: #333;
+    font-weight: 900;
+}

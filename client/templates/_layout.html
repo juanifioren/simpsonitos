@@ -1,0 +1,43 @@
+<head>
+	<link rel="icon" href="/favicon.ico?v=1">
+	<title>Simpsonitos</title>
+  <meta property="og:image" content="http://simpsonitos.com/images/home-family.png" />
+</head>
+
+<template name="Layout">
+
+	<nav id="top-nav" class="navbar navbar-default navbar-static-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{{ pathFor 'Home' }}"><img style="margin-top:-5px;" src="/images/navbar-brand.png"></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="{{ pathFor 'Game' }}">Juegos</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            {{ #if currentUser }}
+            <li><a href="{{ pathFor 'User' facebookId = currentUser.profile.facebookId }}">Perfil</a></li>
+            <li><a href="{{ pathFor 'Friends' }}">Amigos</a></li>
+            <li><a id="logout" href="">Salir</a></li>
+            {{ else }}
+            <li><a id="loginWithFacebook" href="">INGRESAR</a></li>
+            {{ /if }}
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+	<div id="main-container" class="container">
+
+		{{ > yield }}
+
+	</div>
+
+</template>

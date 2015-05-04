@@ -1,0 +1,116 @@
+<template name="GameExam">
+
+    <div id="exam-container" class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="panel panel-default">
+                <div class="panel-body" style="text-align:center">
+                    <h2>Tu nivel de dificultad actual es</h2>
+                    <h1><span class="label label-primary" style="font-size:28px;">{{ userDifficulty }}</span> <span class="label label-primary" style="font-size:28px;">{{ difficultyToString userDifficulty }}</span></h1>
+                    <p class="lead" style="margin:25px 0px;font-size:24px;">¿Estas listo para empezar?</p>
+                    <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                        <a href="{{ pathFor 'Game' }}" class="btn btn-danger btn-lg" role="button">NO</a>
+                        <a id="startGameExam" href="" class="btn btn-success btn-lg" role="button">SI</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="message">
+        <div class="content">
+            <div class="center">
+            </div>
+        </div>
+    </div>
+
+</template>
+
+<template name="GameExam_Question">
+
+    <div id="exam-container" class="row">
+        <div class="col-md-8">
+            <div class="panel panel-default">
+                {{ #with question }}
+                <div class="panel-body">
+                    <h1 id="question" data-questionid="{{ _id }}" style="color: #555;font-size: 26px;font-weight: 900;text-align:center">
+                        {{ text }}
+                    </h1>
+                </div>
+                <div class="list-group">
+                    {{ #each answers }}
+                    <a href="" data-answernumber="{{ number }}" class="answer list-group-item" style="background-color:#ECF6FC;color:#666;font-size:18px;font-weight:700;border: 1px dashed #48A0D5;">
+                        {{ text }}
+                    </a>
+                    {{ /each }}
+                </div>
+                {{ /with }}
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                {{ #with exam }}
+                <div class="panel-heading" style="color:#1F6A96;font-size:26px;font-weight:700;text-align:center;">{{ difficulty }} - {{ difficultyToString difficulty }}</div>
+                <div class="panel-body" style="text-align:center;font-size:56px;font-weight:700;padding:0">{{ time }}</div>
+                <ul class="list-group">
+                    <li class="list-group-item" style="font-size: 26px;font-weight: 700;text-align: center;">{{ questionsAnswered }} de 15 Respondidas</li>
+                    <li class="list-group-item" style="background-color:#4cae4c;border-color:#4cae4c;color:#eaeaea;font-size:26px;font-weight:700;text-align:center;">{{ correctAnswers }} Correctas</li>
+                </ul>
+                {{ /with }}
+            </div>
+        </div>
+    </div>
+
+</template>
+
+<template name="GameExam_Result">
+
+    <div id="exam-container" class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="panel panel-default">
+                <div class="panel-body" style="text-align:center">
+                    {{ #if timeIsOver }}
+                    <h2>Tu tiempo se ha terminado</h2>
+                    <img src="/images/timeover.png" width="150">
+                    <p class="lead" style="margin:25px 0px;font-size:24px;">Lo sentimos. Vuelve a intentarlo.</p>
+                    {{ else }}
+
+                    {{ #with exam }}
+                    <h1 style="font-size:28px;font-weight:900;">{{ examResultText result }} !</h1>
+                    <h2 style="font-size:60px;font-weight:900;color:#666">{{ note }}</h2>
+
+                    <div class="row">
+                        <div class="col-xs-8 col-sm-6" style="font-size:25px;font-weight:400;"><div class="panel panel-default" style="margin-bottom:-1px;"><div class="panel-body">Respondidas</div></div></div>
+                        <div class="col-xs-4 col-sm-6" style="font-size:25px;font-weight:900;"><div class="panel panel-default" style="margin-bottom:-1px;"><div class="panel-body">{{ correctAnswers }} / {{ questionsAnswered }}</div></div></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-8 col-sm-6" style="font-size:25px;font-weight:400;"><div class="panel panel-default"><div class="panel-body">Nivel Actual</div></div></div>
+                        <div class="col-xs-4 col-sm-6" style="font-size:25px;font-weight:900;"><div class="panel panel-default"><div class="panel-body">{{ nextDifficulty }} {{ difficultyToString nextDifficulty }}</div></div></div>
+                    </div>
+                    <p class="lead">Comenzado hace {{ dateFrom createdAt }}</p>
+                    {{ /with }}
+
+                    {{ /if }}
+                    <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                        <a href="{{ pathFor 'User' facebookId = currentUser.profile.facebookId }}" class="btn btn-default btn-lg" role="button">Volver a mi perfil</a>
+                        <a id="playAgain" href="" class="btn btn-success btn-lg" role="button">Jugar de nuevo</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</template>
+
+<template name="GameExam_Loading">
+    <span class="message">Cargando ...</span>
+</template>
+
+<template name="GameExam_CorrectAnswer">
+    <img src="/images/correct.png"><br>
+    <span class="message">Respuesta Correcta!</span>
+</template>
+
+<template name="GameExam_WrongAnswer">
+    <img src="/images/incorrect.png"><br>
+    <span class="message">Respuesta incorrecta!</span>
+</template>

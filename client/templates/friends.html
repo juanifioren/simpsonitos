@@ -1,0 +1,34 @@
+<template name="Friends">
+
+    <div class="row">
+
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+            	<div class="panel-heading">
+    				<h3 class="panel-title" style="display:inline;font-weight:900;font-size:2.2em">Mis amigos</h3>
+    				<button id="inviteFacebookFriends" class="btn btn-primary" style="float:right;">Enviar Invitación</button>
+  				</div>
+                <div class="panel-body">
+                	{{ #if currentUserFriends }}
+					<ul class="list-group row" style="margin:0px;">
+						{{ #each currentUserFriends }}
+						<li class="list-group-item col-xs-6" style="border-radius:0px;">
+							<img class="friends-img" src="{{ profilePictureUrl id }}">
+							<a href="{{ pathFor 'User' facebookId = id }}" style="font-weight:700;font-size:20px;">{{ name }}</a> {{ experience }} exp
+							<br>
+							<span style="color:#888">{{ #if loginAt }}Conectado hace {{ dateFrom loginAt }}{{ else }}Desconectado{{ /if }}</span>
+						</li>
+						{{ /each }}
+					</ul>
+					{{ else }}
+					<div class="alert alert-info" style="font-size:16px">
+  						<strong>D'OOOH!</strong><br>No encontramos amigos que jueguen también. Invítalos!
+					</div>
+					{{ /if }}
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</template>

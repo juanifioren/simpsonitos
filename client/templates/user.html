@@ -1,0 +1,73 @@
+<template name="User">
+    
+    {{ #if user }}
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-4" style="text-align:center">
+                                <img src="{{ user.image.url }}" style="border-radius:500px;border:2px solid #222">
+                            </div>
+                            <div class="col-md-8">
+                                <h1 style="text-align:center;font-weight:900">{{ user.profile.firstName }} {{ user.profile.lastName }}</h1>
+                                <p class="lead" style="text-align:center;color:#999">Registrado hace {{ dateFrom user.createdAt }}</p>
+                                <ul class="list-group">
+                                    <li class="list-group-item">
+                                        <h3 class="list-group-item-heading">Nivel de Dificultad</h3>
+                                        <p class="list-group-item-text lead">{{ user.difficulty }} {{ difficultyToString user.difficulty }}</p>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <h3 class="list-group-item-heading">Puntos de Experiencia</h3>
+                                        <p class="list-group-item-text lead">{{ user.experience }} EXP <span data-toggle="tooltip" data-placement="bottom" title="{{ experienceForNextLevel user.experience }} EXP para subir de nivel">(nivel {{ user.level }})</span></p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <hr>
+                        <h3></h3>
+                        <ul class="list-group">
+                            <li class="list-group-item active" style="font-size:20px;font-weight:700">
+                                &Uacute;ltimos examenes
+                            </li>
+                        {{ #if user.lastExams }}
+                        
+                        {{ #each user.lastExams }}
+                            <li class="list-group-item" style="padding:5px">
+                                <table style="width:100%">
+                                    <tr>
+                                    <td width="100px" align="center" style="background-color:#eaeaea;border-radius:100px">
+                                        <span style="font-weight:900;font-size:2.8em">{{ nextDifficulty }} <span class="glyphicon glyphicon-{{ examResultIcon result }}" aria-hidden="true"></span></span>
+                                    </td>
+                                    <td style="font-size:20px;padding-left:10px;color:#666">
+                                        Respondio <span style="font-weight:700;color:#16a085">{{ correctAnswers }}</span> de <span style="font-weight:700;color:#333">{{ questionsAnswered }}</span>. En dificultad <span style="font-weight:700;color:#3498db">{{ difficulty }} {{ difficultyToString difficulty }}</span>.
+                                    </td>
+                                    <td align="right" style="font-size:16px;color:#aaaaaa">
+                                        Hace {{ dateFrom finishedAt }}
+                                    </td>
+                                    </tr>
+                                </table>
+                                
+                            </li>
+                        {{ /each }}
+                        
+                        {{ else }}
+                            <li class="list-group-item" style="padding:5px;font-size:18px">
+                                <p>No tiene ningun examen.</p>
+                            </li>
+                        {{ /if }}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    {{ else }}
+
+    {{> NotFoundError }}
+
+    {{ /if }}
+
+
+</template>

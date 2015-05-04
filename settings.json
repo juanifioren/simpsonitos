@@ -1,0 +1,13 @@
+{
+
+    "facebook": {
+        "secret": ""
+    },
+
+    "public": {
+    	"facebook": {
+        	"appid": ""
+    	}
+    }
+
+}
