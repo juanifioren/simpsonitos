@@ -1,4 +1,4 @@
-# Simpsonitos: Trivia acerca de Los Simpsons
+# Simpsonitos: Juego Trivia
 
 Un juego de tipo trivia, preguntas y respuestas acerca de Los Simpsons. Construido completamente con [Meteor](http://meteor.com/).
 
@@ -22,7 +22,7 @@ $ meteor run --settings settings.local.json
 
 ## Preguntas
 
-Si bien no hay muchas preguntas (pueden repetirse a lo largo del juego), es facil agregar mas. Solo ten en cuenta el siguiente formato. Se agregan al archivo `questions.json`.
+Si bien no hay muchas preguntas (pueden repetirse a lo largo del juego), es fácil agregar más. Solo ten en cuenta el siguiente formato. Se agregan al archivo `questions.json`.
 
 ```json
 { "_id": "", "difficulty": 0, "text": "", "answers": [ { "number": 1, "text": "" }, { "number": 2, "text": "" }, { "number": 3, "text": "" }, { "number": 4, "text": "" } ], "correctAnswer": 1 }
