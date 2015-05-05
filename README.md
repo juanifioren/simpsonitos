@@ -6,7 +6,7 @@ Un juego de tipo trivia, preguntas y respuestas acerca de Los Simpsons. Hecho co
 
 No se necesita ninguna otra dependencia, solo Meteor.
 
-Antes de correr el juego, necesitas crear una App en [Facebook Developers](https://developers.facebook.com/apps/). Luego agregar el **ID** y el **SECRET** al `settings.local.json`.
+Antes de correr el juego, necesitas crear una App en [Facebook Developers](https://developers.facebook.com/apps/). Luego agregar el **ID** y el **SECRET** al `settings.json`.
 
 ```bash
 # Clonar el proyecto.
@@ -20,7 +20,7 @@ $ mongoimport --port 3001 --db meteor --collection questions < ./questions.json
 $ meteor run --settings settings.json
 ```
 
-## Preguntas
+## Preguntas y Respuestas
 
 Si bien no hay muchas preguntas (pueden repetirse a lo largo del juego), es fácil agregar más. Solo ten en cuenta el siguiente formato. Se agregan al archivo `questions.json`.
 
