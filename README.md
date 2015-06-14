@@ -1,3 +1,4 @@
+<img title="mcb-logo" src="http://s11.postimg.org/dwjiobp4j/simpsonitos.gif" width="800px" alt="meteor-coffee-boilerplate logo"/>
 # Simpsonitos: Juego Trivia
 
 Un juego de tipo trivia, preguntas y respuestas acerca de Los Simpsons. Hecho completamente con [Meteor](http://meteor.com/).
